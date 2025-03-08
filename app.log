@@ -1,0 +1,167 @@
+Traceback (most recent call last):
+  File "/home/ubuntu/capstone2/app.py", line 8, in <module>
+    import requests
+ModuleNotFoundError: No module named 'requests'
+/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+Exception ignored in: <function CDB.__del__ at 0x7f55347360e0>
+Traceback (most recent call last):
+  File "/home/ubuntu/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+Exception ignored in: <function CDB.__del__ at 0x7f55347360e0>
+Traceback (most recent call last):
+  File "/home/ubuntu/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+Exception ignored in: <function CDB.__del__ at 0x7f55347360e0>
+Traceback (most recent call last):
+  File "/home/ubuntu/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+send_message
+my_id = 0 input_msg=dddd my_ai_pre_message=
+첫번째 연결
+insert_temp_reservation 1
+(0, '', '', '', None, None)
+1111
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+2222
+333311
+4411
+6
+{'first_flag': 'n', 'my_id': 6, 'status': 'success', 'return_message': '안녕하세요, 저는 space chat입니다', 'return_menu': '예약하기,질문하기'}
+send_message
+my_id = 6 input_msg=예약하기 my_ai_pre_message=안녕하세요, 저는 space chat입니다
+이어지는 연결 input_msg = 예약하기
+{'input_message': '예약하기', 'output_message': '선택해주세요', 'output_menu': ['컬러1', '컬리2', '컬러3']}
+ 입력메세지가  시스템 menu 입니다 
+send_message
+my_id = 6 input_msg=컬리2 my_ai_pre_message=선택해주세요
+이어지는 연결 input_msg = 컬리2
+{'input_message': ['컬러1', '컬리2', '컬러3'], 'output_message': '날짜를 선택해주세요', 'output_menu': '날짜위젯, 시간위젯'}
+ 입력메세지가  시스템 menu 입니다 
+컬리2
+ 입력메세지가 shop menu 입니다 
+insert_temp_reservation 1
+(6, '', '', '컬리2', None, None)
+1111
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+2222
+333311
+4411
+row 값
+(6, '', '', '', None, None, datetime.datetime(2024, 5, 1, 0, 6, 32), datetime.datetime(2024, 5, 1, 0, 6, 32))
+row 값 끝
+insert_temp_reservation update
+('', '', '', '', '컬리2', '컬리2', None, None, None, None, 6)
+send_message
+my_id = 6 input_msg=날짜위젯 my_ai_pre_message=날짜를 선택해주세요
+이어지는 연결 input_msg = 날짜위젯
+{'input_message': '날짜위젯', 'output_message': '예약이 완료되었습니다.', 'output_menu': '예, 아니오'}
+ 입력메세지가  시스템 menu 입니다 
+send_message
+my_id = 6 input_msg=예 my_ai_pre_message=예약이 완료되었습니다.
+이어지는 연결 input_msg = 예
+{'input_message': '예', 'output_message': 'REVERVATION', 'output_menu': '맞나요, 다시하기'}
+ 입력메세지가  시스템 menu 입니다 
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+[{'tel': '', 'name': '', 'menu': '컬리2', 'reserv_date': None, 'reserv_time': None}]
+send_message
+my_id = 6 input_msg=맞나요 my_ai_pre_message=tel: name: menu: 컬리2reserv_date: Nonereserv_time: None
+이어지는 연결 input_msg = 맞나요
+{'input_message': '맞나요', 'output_message': '예약이 완료되었습니다. 이름을 입력해주세요?', 'output_menu': ''}
+ 입력메세지가  시스템 menu 입니다 
+send_message
+my_id = 0 input_msg=안녕 my_ai_pre_message=
+첫번째 연결
+insert_temp_reservation 1
+(0, '', '', '', None, None)
+1111
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+2222
+333311
+4411
+7
+{'first_flag': 'n', 'my_id': 7, 'status': 'success', 'return_message': '안녕하세요, 저는 space chat입니다', 'return_menu': '예약하기,질문하기'}
+le "/home/ubuntu/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+Exception ignored in: <function CDB.__del__ at 0x7fb5c972e0e0>
+Traceback (most recent call last):
+  File "/home/ubuntu/capstone2/app.py", line 85, in __del__
+    self.connection.close()
+  File "/home/ubuntu/capstone2/venv/lib/python3.10/site-packages/pymysql/connections.py", line 409, in close
+    raise err.Error("Already closed")
+pymysql.err.Error: Already closed
+send_message
+my_id = 0 input_msg=Aaa my_ai_pre_message=
+첫번째 연결
+insert_temp_reservation 1
+(0, '', '', '', None, None)
+1111
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+2222
+333311
+4411
+5
+{'first_flag': 'n', 'my_id': 5, 'status': 'success', 'return_message': '안녕하세요, 저는 space chat입니다', 'return_menu': '예약하기,질문하기'}
+send_message
+my_id = 5 input_msg=예약하기 my_ai_pre_message=안녕하세요, 저는 space chat입니다
+이어지는 연결 input_msg = 예약하기
+{'input_message': '예약하기', 'output_message': '선택해주세요', 'output_menu': ['컬러1', '컬리2', '컬러3']}
+ 입력메세지가  시스템 menu 입니다 
+send_message
+my_id = 5 input_msg=컬러1 my_ai_pre_message=선택해주세요
+이어지는 연결 input_msg = 컬러1
+{'input_message': ['컬러1', '컬리2', '컬러3'], 'output_message': '날짜를 선택해주세요', 'output_menu': '날짜위젯, 시간위젯'}
+ 입력메세지가  시스템 menu 입니다 
+컬러1
+ 입력메세지가 shop menu 입니다 
+insert_temp_reservation 1
+(5, '', '', '컬러1', None, None)
+1111
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+2222
+333311
+4411
+row 값
+(5, '', '', '', None, None, datetime.datetime(2024, 4, 28, 23, 8, 51), datetime.datetime(2024, 4, 28, 23, 8, 51))
+row 값 끝
+insert_temp_reservation update
+('', '', '', '', '컬러1', '컬러1', None, None, None, None, 5)
+send_message
+my_id = 5 input_msg=시간위젯 my_ai_pre_message=날짜를 선택해주세요
+이어지는 연결 input_msg = 시간위젯
+{'input_message': '시간위젯', 'output_message': '예약이 완료되었습니다.', 'output_menu': '예, 아니오'}
+ 입력메세지가  시스템 menu 입니다 
+send_message
+my_id = 5 input_msg=예 my_ai_pre_message=예약이 완료되었습니다.
+이어지는 연결 input_msg = 예
+{'input_message': '예', 'output_message': 'REVERVATION', 'output_menu': '맞나요, 다시하기'}
+ 입력메세지가  시스템 menu 입니다 
+{'user': 'admin', 'password': 'Capstone2!', 'database': 'Capstone2', 'host': 'capstone2.c5ok2y88csdj.ap-northeast-2.rds.amazonaws.com'}
+55555
+[{'tel': '', 'name': '', 'menu': '컬러1', 'reserv_date': None, 'reserv_time': None}]
+send_message
+my_id = 5 input_msg=맞나요 my_ai_pre_message=tel: name: menu: 컬러1reserv_date: Nonereserv_time: None
+이어지는 연결 input_msg = 맞나요
+{'input_message': '맞나요', 'output_message': '예약이 완료되었습니다. 이름을 입력해주세요?', 'output_menu': ''}
+ 입력메세지가  시스템 menu 입니다 

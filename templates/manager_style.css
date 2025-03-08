@@ -1,0 +1,336 @@
+/* manager_style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/*menu style*/
+
+.menu-container {
+    border-radius: 5px;
+    background-color: #dce3fc;
+    display: flex;
+    flex-direction: column; /* 세로 정렬을 위해 flex-direction을 column으로 설정 */
+    gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    top: 0; /* 세로 상 상단에 위치하도록 설정 */
+}
+
+.menu-button {
+    background-color: #6a83fd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.menu-button:hover {
+    background-color: #3751d6;
+}
+
+.menu-button:disabled {
+    background-color: #D9D9D9;
+    color: black;
+    cursor: not-allowed;
+}
+
+.chat-container {
+    display: flex;
+    height: 100%;
+}
+
+.chat-placeholder {
+    width: 50%;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* 요소를 수직으로 정렬 */
+}
+
+.reservation-list {
+    overflow-y: auto;
+    max-height: 80vh;
+    margin-bottom: 20px;
+}
+
+.reservation-card {
+    background-image: linear-gradient(to right, #dce3fc, #fff);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin-bottom: 15px;
+    border: solid 2px #4765FF;
+}
+
+.reservation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reservation-header strong {
+    font-size: 1.2em;
+}
+
+.reservation-body p {
+    margin: 5px 0;
+}
+
+.calendar-button {
+    width: 80%; /* 크기 줄이기 */
+    max-width: 300px; /* 최대 크기 설정 */
+    padding: 10px;
+    background-color: #4765FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px; /* 폰트 크기 줄이기 */
+    margin: 20px auto; /* 위 아래 여백 동일하게 설정, 가운데 정렬 */
+}
+
+.calendar-button:hover {
+    background-color: #6a83fd;
+}
+
+.chat-content {
+    width: 50%;
+    height: 100%;
+    overflow-y: auto;
+    position: relative; /* 추가 */
+    
+}
+
+.menu-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10; /* 추가 */
+}
+
+.menu-icon {
+    width: 15px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.menu-line {
+    width: 100%;
+    height: 3px;
+    background-color: #4765FF;
+}
+
+.chat-sidebar {
+    display: none; /* 기본적으로 숨기기 */
+    position: absolute; /* 추가 */
+    top: 0; /* 추가 */
+    right: 0; /* 추가 */
+    width: 300px; /* 추가 */
+    height: 100%; /* 추가 */
+    background-color: #212f74; /* 기존 코드 */
+    color: white; /* 기존 코드 */
+    padding: 20px; /* 기존 코드 */
+    box-sizing: border-box; /* 기존 코드 */
+    overflow-y: auto; /* 기존 코드 */
+    z-index: 9;
+    display: block;
+}
+
+.chat-sidebar h2 {
+    margin-top: 0;
+    text-align: center;
+    color: #ecf0f1;
+    font-size: 30px;
+}
+
+.chat-sidebar button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #dce3fc;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.chat-sidebar button:hover {
+    background-color: #6a83fd;
+}
+
+.sidebar-out #overlay {
+    display: block; /* Show overlay when sidebar is out */
+}
+#overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    z-index: 8; /* Ensure the overlay is above other content */
+}
+
+.chat-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative; /* 추가 */
+    overflow: hidden;
+}
+
+
+
+#chat {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    height:100%;
+}
+
+#chatHeader {
+    text-align: center;
+    color: #2c3e50;
+}
+.message-container{
+    height: 80%; /* 원하는 높이로 조정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: white;
+    z-index: 1;
+    border: 2px solid #BCCBFF;
+    border-radius: 10px;
+}
+.message-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    background: white;
+    z-index: 1;
+    border: 2px solid #BCCBFF;
+    border-radius: 10px;
+    height: 90%;
+}
+.chat-messages {
+    height:100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow-y: scroll;
+    border-top-left-radius: 10px; /* 왼쪽 위 모서리를 둥글게 하지 않음 */
+    border-top-right-radius: 10px;
+
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 60%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sent {
+    background-color: #4765FF;
+    color: white;
+    font-family: 'Malgun Gothic';
+    align-self: flex-end;
+    text-align: right;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 10px;
+    word-wrap: break-word;
+    display: block;
+}
+
+.received {
+    background-color: #dce3fc;
+    color: black;
+    font-family: 'Malgun Gothic';
+    align-self: flex-start;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 10px;
+    word-wrap: break-word;
+    display: block;
+}
+
+.chat-input,.chat-messages{
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+} 
+.chat-input{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+    height: auto;
+    border-top: 2px solid #BCCBFF;
+    border-bottom-left-radius: 10px; /* 왼쪽 아래 모서리를 10px만큼 둥글게 함 */
+    border-bottom-right-radius: 10px; 
+}
+.chat-input input {
+    width: calc(100%);
+    padding: 10px;
+    box-sizing: border-box; /* input field와 button이 같은 라인에 있도록 함 */
+    height: 50px; /* 텍스트 입력 필드의 높이 설정 (상하 여백 포함) */
+    border: none;
+}
+
+.chat-input button {
+    background-image: url('send_icon.png');
+    background-size: 50%;
+    width: 50px;
+    height: 50px; /* 버튼의 높이 설정 (상하 여백 포함) */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #BCCBFF;
+    color: white;
+    border: none;
+    cursor:pointer;
+}
+
+.chat-input button:hover {
+    background-color: #6a83fd;
+}
+
+.reservation-title {
+    text-align: center;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}

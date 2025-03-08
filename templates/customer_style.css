@@ -1,0 +1,383 @@
+body,
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    flex-direction: column;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative;
+    margin-top: 60px;
+}
+
+.chat-container {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background: white;
+    z-index: 1;
+    border: 2px solid #BCCBFF;
+    border-radius: 10px;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.chat-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0;
+    text-align: center;
+    height: auto;
+    width: 100%;
+    border-top: 2px solid #BCCBFF;
+    box-sizing: border-box;
+}
+
+#messageInput {
+    width: calc(100% - 50px);
+    padding: 10px;
+    box-sizing: border-box;
+    height: 50px;
+    border: none;
+}
+
+.sent {
+    background-color: #4765FF;
+    color: white;
+    font-family: 'Malgun Gothic';
+    align-self: flex-end;
+    margin-left: auto;
+    margin-right: 10px;
+    text-align: right;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    display: block;
+}
+
+.received {
+    background-color: #dce3fc;
+    color: black;
+    font-family: 'Malgun Gothic';
+    align-self: flex-start;
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: 60%;
+    text-align: left;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 10px;
+    word-wrap: break-word;
+    display: block;
+}
+
+#send-button {
+    background-image: url('send_icon.png');
+    background-size: 50%;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #BCCBFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#send-button:hover {
+    background-color: #71acec;
+    cursor: pointer;
+}
+
+.header-icons {
+    position: fixed;
+    top: 20px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.profile-icon {
+    background-image: url('profile-icon.png');
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-size: cover;
+    background-color: #4765FF; /* 프로필 아이콘의 배경색 변경 */
+    margin-right: 20px;
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 1; /* Ensure profile icon is above other elements */
+    transition: right 0.3s ease;
+    border-radius: 50%; /* 프로필 아이콘을 원 모양으로 설정 */
+}
+
+/* Language icon style */
+.language-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-size: cover;
+    background-color: #4765FF;
+    margin-right: 20px;
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    z-index: 1001; /* Ensure language icon is above other elements */
+    transition: right 0.3s ease;
+    border-radius: 50%;
+}
+.profile-icon:active,
+.language-icon:active {
+    background-color: #BCCBFF;
+    transform: scale(1.1);
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-line {
+    width: 100%;
+    height: 3px;
+    background-color: #4765FF;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon:hover .menu-line {
+    background-color: #71acec;
+}
+
+/*sidebar*/
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* 초기에는 화면 밖으로 숨겨둠 */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 3; /* 햄버거 아이콘 아래에 배치 */
+    transition: right 0.3s ease; /* 슬라이딩 효과를 위한 transition 속성 */
+}
+
+.sidebar-title{
+    font-size: 25px;
+    font-weight: bold;
+   /* padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;*/
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+
+.language-buttons button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+}
+
+.language-buttons button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.language-buttons button:hover {
+    color: #71acec;
+}
+
+.sidebar-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+#separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(204, 204, 204); /* 선의 색상 */
+    margin-top: 10px; /* 선과 위쪽 콘텐츠 사이의 간격 */
+    position: absolute;
+    bottom: 50px; /* exit-icon 위로 이동 */
+}
+
+#exit-icon {
+    background-image: url('exit-icon.png'); /* exit-icon 이미지를 여기에 넣으세요 */
+    width: 25px;
+    height: 25px;
+    /*border-top: 1px solid black;*/
+}
+
+/* 오버레이 스타일 */
+/* CSS for the overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: none; /* Initially hidden */
+}
+
+/* Open the sidebar and show the overlay */
+#sidebar.open + .overlay {
+    display: block;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.winterblue {
+    background-color: #4765FF;
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.springlightblue {
+    background-color: #BCEFFF;
+    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    top: 0%;
+    left: 50%;
+    transform: translate(30%, -50%);
+}
+
+.summerlightblue {
+    background-color: #BCCBFF;
+    opacity: 0.5;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.autumnmuteblue {
+    background-color: #9EB9E3;
+    width: 140px;
+    height: 140px;
+    opacity: 0.5;
+    right: 75%;
+    bottom: 10%;
+    transform: translate(30%, 30%);
+}
+
+.summermuteblue {
+    background-color: #C1E0EA;
+    width: 90px;
+    height: 90px;
+    opacity: 0.5;
+    bottom: -30%;
+    left: 10%;
+    transform: translate(100%, 100%);
+}
+
+.grey {
+    background-color: #D9D9D9;
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+    top: 10%;
+    transform: translate(50%, 200%);
+}
+
+/* Add this CSS inside a media query targeting mobile screens */
+@media only screen and (max-width: 600px) {
+
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Ensure all parent containers are set to 100% width */
+    /* Example: If .chat-container is a child of #wrapper */
+    #wrapper {
+        width: 100%;
+    }
+    
+    /* Adjust .chat-container properties */
+    .chat-container {
+        width: 90%;
+        height: 90%;
+        margin: 5% auto; /* Center the container vertically */
+        box-sizing: border-box; /* Include padding and border in width and height calculations */
+    }
+    
+
+    
+    h1 {
+        font-size: 40px !important; /* Decrease font size for mobile */
+        margin-top: 60px; /* Adjust margin for smaller screens */
+    }
+
+    .chat-container {
+        width: 90% ; /* Adjust width for smaller screens */
+        height: 70%; /* Adjust height for smaller screens */
+        margin: auto; /* Add margin to separate from header */
+    }
+
+}
+

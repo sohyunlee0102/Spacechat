@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Sign in</h2>
+        <form id="loginForm" action="{{ url_for('server_login') }}" method="get">
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <input type="password" placeholder="Enter Password" name="password" required>
+            <button type="submit">Login</button>
+            <a href="agreement.html">Create an account</a>
+            <button id="startWithoutLoginBtn" type="button">Start without login</button> <!-- 추가된 버튼 -->
+        </form>
+    </div>
+    <div class="background">
+        <div class="circle winterblue"></div>
+        <div class="circle summerlightblue"></div>
+        <div class="circle springlightblue"></div>
+        <div class="circle autumnmuteblue"></div>
+        <div class="circle summermuteblue"></div>
+        <div class="circle grey"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>

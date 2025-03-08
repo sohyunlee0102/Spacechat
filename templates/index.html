@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space Chat</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="background">
+    <div class="circle winterblue"></div>
+    <div class="circle summermuteblue"></div>
+    <div class="circle grey"></div>
+    <div class="circle autumnmuteblue"></div>
+    <div class="circle springlightblue"></div>
+    <div class="circle summerlightblue" onclick="redirectToLogin()"></div> <!-- 수정된 부분 -->
+    <div class="title" id="title"> </div>
+    <p onclick="redirectToLogin()">press here to start</p> <!-- 수정된 부분 -->
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Circles appear one by one
+    var circles = document.querySelectorAll('.circle');
+    circles.forEach(function(circle, index) {
+        setTimeout(function() {
+            if (circle.classList.contains('summerlightblue')) {
+                // If it's the summerlightblue circle, show the text after it appears
+                showText();
+            }
+            circle.style.opacity = '1';
+        }, index * 150); // Adjust the timing as needed
+    });
+
+    // Function to show the text gradually
+    function showText() {
+        var text = "Space Chat";
+        var title = document.getElementById('title');
+        var delay = 40; // Adjust the delay between each character
+        var index = 0;
+        var intervalId = setInterval(function() {
+            title.textContent += text[index];
+            index++;
+            if (index === text.length) {
+                clearInterval(intervalId); // Stop the interval when all characters are shown
+            }
+        }, delay);
+    }
+});
+
+// Function to redirect to login.html
+function redirectToLogin() {
+    window.location.href = "login.html";
+}
+</script>
+</body>
+</html>

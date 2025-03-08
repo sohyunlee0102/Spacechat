@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Message Test</title>
+    <link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+    <h1>Space Chat2</h1>
+    <div id="chat-container"></div>
+    <input type="text" id="message-input" placeholder="메시지를 입력하세요">
+    <button id="send-btn">메시지 보내기</button>
+
+    <script>
+        function sendMessage() {
+            var chatContainer = document.getElementById('chat-container');
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value.trim();
+            if (message) {
+                var customerMsg = document.createElement('div');
+                customerMsg.classList.add('message', 'customer');
+                customerMsg.textContent = '고객: ' + message;
+                chatContainer.appendChild(customerMsg);
+        
+                // 첫 접속 여부 확인 및 플래그 설정
+                var firstFlag = localStorage.getItem('firstVisit') === null ? 'y' : 'n';
+                if (firstFlag === 'y') {
+                    localStorage.setItem('firstVisit', 'no');
+                }
+        
+                //var url = 'http://www.medify.co.kr:60001/chat_message/?message=' + encodeURIComponent(message) + '&first_flag=' + firstFlag;
+                var url = 'http://www.medify.co.kr:60000/chat_message2/';
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        var aiMsg = document.createElement('div');
+                        aiMsg.classList.add('message', 'ai');
+                        aiMsg.textContent = 'AI: ' + data.message; // 서버 응답을 사용하여 AI 메시지 생성
+                        chatContainer.appendChild(aiMsg);
+                        chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤을 가장 아래로 이동
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        var errorMsg = document.createElement('div');
+                        errorMsg.classList.add('message', 'error');
+                        errorMsg.textContent = '오류 발생: ' + error;
+                        chatContainer.appendChild(errorMsg);
+                    });
+        
+                messageInput.value = ''; // 입력 필드 초기화
+                chatContainer.scrollTop = chatContainer.scrollHeight; // 스크롤을 가장 아래로 이동
+            }
+        }
+        
+
+        document.getElementById('send-btn').addEventListener('click', sendMessage);
+
+        // 엔터키 이벤트 리스너 추가
+        document.getElementById('message-input').addEventListener('keypress', function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+                event.preventDefault(); // 폼 제출 방지
+            }
+        });
+    </script>
+</body>
+</html>
+
+

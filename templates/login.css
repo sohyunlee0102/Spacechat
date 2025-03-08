@@ -1,0 +1,233 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    padding: 30px;
+    width: 300px;
+    background: white;
+    border: 2px solid #BCCBFF;
+    max-width: 300px; /* Added max-width */
+    border-radius: 10px;
+}
+.login-container h2{
+    text-align: left;
+    font-weight: bold;
+    color: black;   
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+input[type="text"], input[type="password"] {
+    width: calc(100%); /* full width minus padding and border */
+    padding: 10px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+input[type="password"]:focus {
+    border: solid 2px #4765FF;
+    outline: none;
+}
+
+input[type="text"]:focus {
+    border: solid 2px #4765FF;
+    outline: none;
+}
+
+button {
+    background-color:#4765FF;
+    color: white;
+    font-size: 15px;
+    padding: 14px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: #132daf;
+}
+a {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: dodgerblue;
+    font-size: 11px;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    display: block;
+}
+a span {
+    width: 100%; /* 가로 가운데 정렬을 위해 너비를 100%로 설정 */
+}
+
+/*배경의 원 설정*/
+.background {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    z-index: -1;
+    
+}
+
+.circle {
+    position: relative;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.winterblue {
+    position: absolute;
+    background-color: #4765FF;
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.springlightblue {
+    position: absolute;
+    background-color: #BCEFFF;
+    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    top: 0%;
+    left: 50%;
+    transform: translate(30%, -50%);
+}
+
+.summerlightblue {
+    position: absolute;
+    background-color:  #BCCBFF;
+    opacity: 0.5;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.autumnmuteblue {
+    position: absolute;
+    background-color: #9EB9E3;
+    width: 140px;
+    height: 140px;
+    opacity: 0.5;
+    right: 50%;
+    transform: translate(-150%, 150%);
+}
+.summermuteblue{
+    background-color: #C1E0EA;
+    width: 90px;
+    height: 90px;
+    opacity: 0.5;
+    bottom: -30%;
+    left: 10%;
+    transform: translate(100%, 100%);
+}
+.grey{
+    background-color: #D9D9D9;
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+    top: 10%;
+    transform: translate(50%, 200%);
+}
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    .login-container {
+        width: 70%;
+    }
+    input[type="text"],
+    input[type="password"],
+    button,
+    a {
+        width: calc(100%); /* Adjusted width */
+        font-size: 10px; /* Decreased font size */
+        display: flex; /* Flexbox 사용 */
+        justify-content: center; /* 수평 가운데 정렬 */
+        align-items: center; /* 수직 가운데 정렬 */
+        height: 100%; /* 부모 요소의 높이만큼 요소 확장 */
+    }
+
+    .login-container h2 {
+        font-size: 30px; /* Decreased font size */
+        font-weight: bold;
+    }
+
+    button {
+        font-size: 12px; /* Decreased font size */
+        padding: 10px 20px; /* Decreased padding */
+    }
+
+    a span {
+        width: 100%; /* 스팬 요소의 너비를 100%로 유지 */
+    }
+
+    .winterblue {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .springlightblue {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .summerlightblue {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .autumnmuteblue {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .summermuteblue {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .grey {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .title {
+        font-size: 40px;
+    }
+    
+    p {
+        font-size: 8px;
+    }
+
+}

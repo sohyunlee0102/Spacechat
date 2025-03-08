@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Message Test</title>
+    <link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+    <h1>Space Chat2</h1>
+    <div id="chat-container"></div>
+    <input type="text" id="message-input" placeholder="메시지를 입력하세요">
+    <button id="send-btn">메시지 보내기</button>
+    <button id="reset-btn">초기화</button> <!-- 초기화 버튼 추가 -->
+
+    <script>
+        var my_id = '0'; // Assuming an initial state that can be any default value.
+        var my_ai_pre_message = ''
+        function sendMessage(messageToSend = null, reset = false) {
+            var chatContainer = document.getElementById('chat-container');
+            var messageInput = document.getElementById('message-input');
+            var message = messageToSend || messageInput.value.trim();
+    
+            if (reset) {
+                my_id = '0'; // Resetting my_id to '0' directly
+            }
+    
+            if (message) {
+                var customerMsg = document.createElement('div');
+                customerMsg.classList.add('message', 'customer');
+                customerMsg.textContent = '고객: ' + message;
+                chatContainer.appendChild(customerMsg);
+                
+                var url = `http://spacechat.co.kr:60000/send_message/?my_id=${my_id}&message=${encodeURIComponent(message)}&my_ai_pre_message=${my_ai_pre_message}`;
+                //var url = `http://www.medify.co.kr:60000/send_message/?my_id=${my_id}&message=${encodeURIComponent(message)}&my_ai_pre_message=${my_ai_pre_message}`;
+                //var url = `http://www.braininvest.co.kr:60000/send_message/?&message=${encodeURIComponent(message)}&first_flag='y'}`;
+
+                fetch(url)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (!reset) { // Only update my_id if it's not a reset call
+                            my_id = data.my_id; // Update my_id from the response for subsequent requests
+                            my_ai_pre_message = data.return_message;
+                        }
+                        
+                        var aiMsg = document.createElement('div');
+                        aiMsg.classList.add('message', 'ai');
+                        aiMsg.textContent = 'AI: ' + data.return_message;
+    
+                        var menuContainer = document.createElement('div');
+                        menuContainer.classList.add('menu-container');
+    
+                        var menuItems = data.return_menu.split(',');
+    
+                        menuItems.forEach(item => {
+                            var button = document.createElement('button');
+                            button.textContent = item.trim();
+                            button.classList.add('menu-button');
+                            button.onclick = function() {
+                                sendMessage(item.trim());
+                            };
+                            menuContainer.appendChild(button);
+                        });
+    
+                        chatContainer.appendChild(aiMsg);
+                        chatContainer.appendChild(menuContainer);
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        var errorMsg = document.createElement('div');
+                        errorMsg.classList.add('message', 'error');
+                        errorMsg.textContent = '오류 발생: ' + error;
+                        chatContainer.appendChild(errorMsg);
+                    });
+    
+                if (!messageToSend) {
+                    messageInput.value = '';
+                }
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+        }
+    
+        document.getElementById('send-btn').addEventListener('click', () => sendMessage());
+        document.getElementById('reset-btn').addEventListener('click', function() {
+            sendMessage('', true); // Pass true to indicate a reset
+            alert('초기화되었습니다. 페이지를 새로고침하세요.');
+        });
+    
+        document.getElementById('message-input').addEventListener('keypress', function(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+                event.preventDefault();
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>
+
+
+

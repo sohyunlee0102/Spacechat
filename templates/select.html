@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to SpaceChat</title>
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .centered {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 200px;
+        text-align: center;
+	text-decoration: none;
+	display: inline-block;
+    }
+
+    .button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+<div class="centered">
+    <h1>Welcome to SpaceChat</h1>
+    <a href="{{ url_for('login') }}" class="button">Login</a>
+    <a href="{{ url_for('index2') }}" class="button">Start as a non-member</a>
+</div>
+</body>
+</html>

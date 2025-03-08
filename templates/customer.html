@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Chat</title>
+    <link rel="stylesheet" href="customer_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    
+</head>
+<body>
+
+    <div class="header-icons">
+        <div class="profile-icon"></div>
+        
+        <div class="menu-icon">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+
+        <div class="language-icon" id="language-icon"></div>
+    </div>
+
+    <h1 class="chat-header">Customer Chat</h1>
+
+    <div class="chat-container">
+        
+        <div id="messages" class="chat-messages"></div>
+        <div class="chat-input">
+            <input id="messageInput" type="text" placeholder="Type a message...">
+            <button id="send-button" onclick="sendMessage()"></button>
+        </div>
+    </div>
+
+    <div class="circle winterblue"></div>
+    <div class="circle springlightblue"></div>
+    <div class="circle summerlightblue"></div>
+    <div class="circle autumnmuteblue"></div>
+    <div class="circle summermuteblue"></div>
+    <div class="circle grey"></div>
+
+    <!-- Sidebar for language selection -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-title">Select Language</div>
+        <div class="language-buttons">
+            <button id="kor-btn">
+                <img src="korean-icon.png" alt="Korean"> Korean
+            </button>
+            <button id="eng-btn">
+                <img src="english-icon.png" alt="English"> English
+            </button>
+            <button id="jap-btn">
+                <img src="japanese-icon.png" alt="Japanese"> Japanese
+            </button>
+            <button id="chi-btn">
+                <img src="chinese-icon.png" alt="Chinese"> Chinese
+            </button>
+        </div>
+        <div id="separator"></div>
+        <div id="exit-icon" class="sidebar-icon"></div>
+    </div>
+    <div class="overlay"></div>
+    <script src="customer.js" defer></script>
+</body>
+</html>
