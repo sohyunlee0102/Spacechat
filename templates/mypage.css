@@ -1,0 +1,342 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 500px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: auto;
+    z-index: 1;
+    text-align: left;
+    padding: 20px;
+    padding-top: 10px;
+    background: white;
+    border: 2px solid #BCCBFF;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    border-radius: 10px;
+    height: 80%;
+    overflow: auto;
+}
+
+h1 {
+    font-size: 30px; /* Adjust font size */
+    color: #333; /* Change color if needed */
+    font-weight: bold; /* Make it bold */
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 0; /* Remove default margin */
+    padding-top: 10px;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4765FF;
+}
+.profile{
+    border: 2px solid #BCCBFF;
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(to right,#d5defd, #8699fa);
+}
+
+/* Additional styles for profile picture */
+.profile-content {
+    width: 100%; /* Ensuring the container takes the full width */
+    /*max-width: 500px;*/ /* You can adjust the max-width as needed */
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-info {
+    text-align: left; /* Keep text aligned to the left */
+}
+
+/* Styles for file input button */
+.file-input {
+    margin-top: 10px; /* Adjust as needed */
+    text-align: left; /* Left align the button */
+    width: 100%; /* Ensure it takes the full width */
+}
+
+/* Additional styles for file input button and selected file name */
+#profile-upload {
+    display: none; /* Hide the file input button */
+}
+
+label.btn {
+    padding: 5px 5px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left; /* Ensure the button is left-aligned */
+    width: 90px;
+    height: 15px;
+    font-size: 11px;
+    text-align: center;
+    background-color: #4765FF;
+}
+
+label.btn:hover {
+    background-color: #0056b3;
+}
+
+#selected-file-name {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+/* Adjustments to align profile components vertically */
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#username-container {
+    display: flex;
+    align-items: left;
+    margin-bottom: 5px; /* Add some space below the container */
+    width: 100%;
+    top: 50%;
+}
+
+
+#change-username-btn {
+    margin-left: 0 !important; /* 마진을 제거합니다 */
+    margin-top: 0px; /* 위쪽 마진을 제거합니다 */
+    width: 50px;
+    height: 25px;
+    text-align: center;
+    background-color: #4765FF;
+    color: white;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    top:50%;
+}
+
+#change-username-btn:hover{
+    background-color: #0056b3;
+}
+#username{
+    margin-right: 20px;
+    height: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-decoration: underline;
+    text-underline-offset: 7px;
+    text-decoration-thickness: 1.5px;
+}
+#new-username {
+    width: 200px;
+    height: 30px;
+    border: solid 2px #4765FF;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+#email{
+    font-size: 12px
+}
+
+#username-error {
+    color: rgb(247, 129, 129);
+    display: none;
+    margin-top: 5px; /* Add some space above the error message */
+    white-space: nowrap; /* Prevent the text from wrapping */
+    font-size: 14px;
+}
+
+/*settings*/
+.settings{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border: none;
+    background-color: white;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+}
+
+.settings h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+#change-password-btn, #logout, #delete-account-link{
+    color:#6f83e6;
+}
+
+#change-password-btn{
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+    background: none;
+    padding: 0px;
+    border: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+}
+#logout{
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: left;
+    background: none;
+    padding: 0px;
+    border: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+}
+#delete-account-link{
+    font-size: 15px;
+    cursor: pointer;
+    text-align: left;
+    background: none;
+    font-weight: bold;
+    padding: 0px;
+    border: none;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    /*color: black;*/
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+}
+/*예약*/
+.reservations h2{
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: black;
+}
+.reservations h3{
+    margin-left: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 1.5px;
+    color:#6f83e6;
+}
+.reservations p{
+    margin-left: 30px;
+    color: #4b4b4b;
+    margin-top: 5px;
+}
+
+
+
+/*배경 원*/
+/*배경의 원 설정*/
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: -1;
+}
+
+.circle {
+    position: relative;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
+.winterblue {
+    position: absolute;
+    background-color: #4765FF;
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.springlightblue {
+    position: absolute;
+    background-color: #BCEFFF;
+    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    top: 0%;
+    left: 50%;
+    transform: translate(30%, -50%);
+}
+
+.summerlightblue {
+    position: absolute;
+    background-color:  #BCCBFF;
+    opacity: 0.5;
+    justify-content: center;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.autumnmuteblue {
+    position: absolute;
+    background-color: #9EB9E3;
+    width: 140px;
+    height: 140px;
+    opacity: 0.5;
+    right: 50%;
+    transform: translate(-150%, 150%);
+}
+.summermuteblue{
+    background-color: #C1E0EA;
+    width: 90px;
+    height: 90px;
+    opacity: 0.5;
+    bottom: -30%;
+    left: 10%;
+    transform: translate(100%, 100%);
+}
+.grey{
+    background-color: #D9D9D9;
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+    top: 10%;
+    transform: translate(50%, 200%);
+}

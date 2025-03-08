@@ -1,0 +1,53 @@
+2024-07-08 14:47:18,279 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-08 14:57:02,497 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-08 14:58:15,192 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-08 15:04:51,515 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-08 15:06:10,793 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-08 15:07:12,819 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 06:29:39,788 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 06:36:56,113 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 06:47:30,478 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 07:54:03,962 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 09:07:37,044 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-10 09:18:24,996 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 09:19:33,214 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 09:19:40,147 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 09:23:12,866 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 09:30:53,410 - ERROR - Exception on /login/authorized [GET]
+Traceback (most recent call last):
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ubuntu/capstone2/app.py", line 219, in authorized
+    token = google.authorize_access_token()
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/authlib/integrations/flask_client/apps.py", line 100, in authorize_access_token
+    params = self._format_state_params(state_data, params)
+  File "/home/ubuntu/.local/lib/python3.10/site-packages/authlib/integrations/base_client/sync_app.py", line 234, in _format_state_params
+    raise MismatchingStateError()
+authlib.integrations.base_client.errors.MismatchingStateError: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:07:18,124 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:09:23,377 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:09:26,830 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:12:11,449 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:20:59,410 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:26:17,966 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:35:53,957 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:36:34,650 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:36:38,928 - ERROR - An error occurred during authorization: State validation failed
+2024-07-10 11:36:43,138 - ERROR - An error occurred during authorization: State validation failed
+2024-07-10 11:36:43,481 - ERROR - An error occurred during authorization: State validation failed
+2024-07-10 11:36:43,749 - ERROR - An error occurred during authorization: State validation failed
+2024-07-10 11:36:45,964 - ERROR - An error occurred during authorization: State validation failed
+2024-07-10 11:36:53,941 - ERROR - An error occurred during authorization: mismatching_state: CSRF Warning! State not equal in request and response.
+2024-07-10 11:37:01,397 - ERROR - An error occurred during authorization: State validation failed
+2024-07-14 09:06:53,379 - ERROR - An error occurred during authorization: Invalid response from google
+2024-07-14 09:29:43,319 - ERROR - An error occurred during authorization: Invalid response from google

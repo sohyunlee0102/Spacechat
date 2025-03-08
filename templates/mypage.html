@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="mypage.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>MyPage</h1>
+        <section class="profile">
+            <div class="profile-content">
+                <div class="profile-pic" id="profile-pic">
+                    <!-- Default profile picture -->
+                    <img src="profile-icon.png" alt="Profile Picture">
+                </div>
+                <div class="profile-info">
+                    <div id="username-container">
+                        <span id="username"></span>
+                        <input type="text" id="new-username" style="display:none;">
+                        <label class="btn" id="change-username-btn">Change</label>
+                        
+                    </div>
+                    <span id="username-error" style="color: red; display: none;">Username must be at least 2 letters long.</span>
+                    <p id="email">user@example.com</p>
+                </div>
+            </div>
+            <!-- File input button -->
+            <div class="file-input">
+                <label for="profile-upload" class="btn">Choose a Picture</label>
+                <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+                <span id="selected-file-name"></span>
+            </div>
+        </section>
+        <section class="reservations" id="reservation-section">
+            <h2>Your Reservations</h2>
+            <div class="reservation">
+                
+            </div>
+        </section>
+        <section class="settings">
+            <h2>Settings</h2>
+            <button id="change-password-btn" class="btn" onclick="openChangePasswordPage()">Change Password</button>
+            <button id="logout" class="btn">Logout</button>
+            <a href="#" id="delete-account-link" class="delete-account-link">Delete Account</a>
+        </section>
+
+    </div>
+
+    <div class="background">
+        <div class="circle winterblue"></div>
+        <div class="circle summerlightblue"></div>
+        <div class="circle springlightblue"></div>
+        <div class="circle autumnmuteblue"></div>
+        <div class="circle summermuteblue"></div>
+        <div class="circle grey"></div>
+    </div>
+
+    <script src="mypage.js"></script>
+</body>
+</html>

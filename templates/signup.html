@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container" onsubmit="return validateForm()">
+        <form id="signupForm">
+            <h1>Sign Up</h1>
+            <!--Enter Name-->
+            <h2>Name</h2>
+            <input type="text" id="user_name" placeholder="Enter your name (It must be your real name)" required>
+            <small id="userNameLengthError" style="color: red;"></small>
+            <!--Id check and verification-->
+            <h2>E-mail</h2>
+            <input type="text" id="email" placeholder="Enter Email" required>
+            <button type="button" onclick="sendVerificationCode()">Send Verification Code</button>
+            <small id="emailFormatError" style="color: red;"></small>
+            <input type="text" id="verificationCode" placeholder="Enter Verification Code" required>
+            <span class="timer" id="verificationCodeTimer" style="color: red;"></span>
+            <button type="button" onclick="checkVerificationCode()">Check Verification Code</button>
+            <small id="verificationError" style="color: red;"></small>
+            <!--password check and verification-->
+            <h2>Password</h2>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <small id="passwordLengthError" style="color: red;"></small>
+            <small id="passwordCriteriaError" style="color: red;"></small>
+            <input type="password" id="confirm_password" placeholder="Confirm Password" required>
+            <small id="passwordMatchError" style="color: red;"></small>
+            <button type="submit">Sign Up</button>
+            <a href="login.html">Already have an account? Log in</a>
+        </form>
+    </div>
+    <div class="background">
+        <div class="circle winterblue"></div>
+        <div class="circle summerlightblue"></div>
+        <div class="circle springlightblue"></div>
+        <div class="circle autumnmuteblue"></div>
+        <div class="circle summermuteblue"></div>
+        <div class="circle grey"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

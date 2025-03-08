@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Chat</title>
+    <link rel="stylesheet" href="manager_style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.min.js"></script>
+    <script src="manager.js" defer></script>
+</head>
+<body>
+    <div class="background">
+        <div class="circle winterblue"></div>
+        <div class="circle summerlightblue"></div>
+        <div class="circle springlightblue"></div>
+        <div class="circle autumnmuteblue"></div>
+        <div class="circle summermuteblue"></div>
+        <div class="circle grey"></div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-placeholder">
+            <h2 class="reservation-title">예약 내역</h2>
+            <div id="reservationList" class="reservation-list"></div>
+            <a href="http://spacechat.co.kr:5000/google_login2">Connect to Google Calander</a>
+        </div>
+        <div class="chat-content" id="chatContent">
+            <div class="menu-container" id="menu-container">
+                <div class="menu-icon" id="menu-icon">
+                    <div class="menu-line"></div>
+                    <div class="menu-line"></div>
+                    <div class="menu-line"></div>
+                </div>
+            </div>
+
+            <div class="chat-sidebar" id="chatSidebar">
+                <h2>Chat List</h2>
+                <button onclick="toggleDeleteMode()" class="delete-button" id="deleteButton">채팅방 삭제</button>
+                <button onclick="deleteSelectedRooms()" class="confirm-button" id="confirmButton" style="display: none;">확인</button>
+                <div id="chatRooms"></div>
+            </div>
+            <div class="overlay" id="overlay"></div> <!-- Overlay element added -->
+            <div class="chat-main" id="chatMain" style="display: none;">
+                <div id="chat">
+                    <h2 id="chatHeader">Chat with Customer</h2>
+                    <div id="message-container" class="message-container">
+                        <div id="messages" class="chat-messages"></div>
+                        <div class="chat-input">
+                            <input id="messageInput" type="text" placeholder="Type a message...">
+                            <button onclick="sendMessage()"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

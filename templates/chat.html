@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Chat</title>
+    <link rel="stylesheet" href="chat-style.css">
+    <!-- 필요한 CSS 파일 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div class="header-icons">
+        <!-- Profile icon -->
+        <div class="profile-icon" id="profile-icon"></div>
+        <div class="menu-icon" id="menu-icon">
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+            <div class="menu-line"></div>
+        </div>
+        <!-- Language icon -->
+        <div class="language-icon" id="language-icon"></div>
+    </div>
+
+    <h1>Space Chat</h1>
+    
+    <div id="chat-outline">
+        <div id="chat-container">
+            <!-- 메뉴 버튼 컨테이너 추가 -->
+            <!--<div class="menu-container" id="menu-container"></div>-->
+            <!--<div class="message customer"></div>
+            <div class="ai-message-container">
+                <div class="ai-icon"></div>
+                <div class="message ai"></div>
+            </div>
+            <div class="menu-container"></div>-->
+        </div>
+        <div class="send-container">
+            <input type="text" id="message-input" placeholder="메시지를 입력하세요">
+            <button id="send-btn" aria-label="메시지 보내기"></button>
+        </div>
+        <!-- chat-container 아래의 언어 선택 버튼 제거 -->
+    </div>
+    
+    <div class="background">
+        <div class="circle winterblue"></div>
+        <div class="circle summerlightblue"></div>
+        <div class="circle springlightblue"></div>
+        <div class="circle autumnmuteblue"></div>
+        <div class="circle summermuteblue"></div>
+        <div class="circle grey"></div>
+    </div>
+
+    <!-- Sidebar for language selection -->
+    <div id="sidebar" class="sidebar">
+        <div class="sidebar-title">Select Language</div>
+        <div class="language-buttons">
+            <button id="kor-btn">
+                <img src="korean-icon.png" alt="Korean"> Korean
+            </button>
+            <button id="eng-btn">
+                <img src="english-icon.png" alt="English"> English
+            </button>
+            <button id="jap-btn">
+                <img src="japanese-icon.png" alt="Japanese"> Japanese
+            </button>
+            <button id="chi-btn">
+                <img src="chinese-icon.png" alt="Chinese"> Chinese
+            </button>
+        </div>
+        <div id="separator"></div>
+        <div id="exit-icon" class="sidebar-icon"></div>
+    </div>
+
+    <!-- 오버레이 -->
+    <div class="overlay" id="overlay"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="chat.js"></script> <!-- JavaScript 파일 추가 -->
+</body>
+</html>

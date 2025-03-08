@@ -1,0 +1,511 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden; /* 기존 overflow 속성 유지 */
+}
+
+body {
+    position: relative; /* 배경 원이 body 안에 위치하도록 보장 */
+}
+
+h1 {
+    text-align: center;
+    flex-direction: column;
+    font-size: 48px;
+    font-weight: bold;
+    position: relative; /* Ensure h1 respects the flow of the document */
+    margin-top: 60px; /* Add space for the header-icons */
+}
+
+#chat-outline {
+    height: 70%; /* 원하는 높이로 조정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+    background: white;
+    z-index: 1;
+    border: 2px solid #BCCBFF;
+    border-radius: 10px;
+}
+
+#chat-container,
+.send-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: auto;
+}
+
+#chat-container {
+    height:100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    overflow-y: scroll;
+    overflow-y: hidden;
+}
+
+#chat-container:hover {
+    overflow-y: auto; /* Display the vertical scrollbar on hover */
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
+}
+
+.message {
+    padding: 10px;
+    border-radius: 5px;
+    margin: 15px 10px;
+    max-width: 60%;
+    word-wrap: break-word;
+    display: inline-block;
+}
+
+.customer {
+    background-color: #4765FF; /* 고객 메시지 배경색 */
+    color: white;
+    font-family: 'Malgun Gothic';
+    align-self: flex-start;
+    margin-left: auto;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.ai {
+    background-color: #dce3fc; /* AI 메시지 배경색 */
+    color: black;
+    font-family: 'Malgun Gothic';
+    align-self: flex-end;
+    margin-right: auto;
+    margin-left: 10px;
+    max-width: 50%;
+    text-align: left;
+}
+
+.ai-message-container {
+    display: flex;
+    align-items: flex-start; /* 상단 정렬 */
+}
+
+.ai-message-container .ai-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    margin-right: 5px;
+    background: url('ai-icon.png') no-repeat center center;
+    background-size: contain;
+}
+
+/*menu style*/
+
+.menu-container {
+    border-radius: 5px;
+    background-color: #dce3fc;
+    display: flex;
+    flex-direction: column; /* 세로 정렬을 위해 flex-direction을 column으로 설정 */
+    max-width: 50%;
+    gap: 10px;
+    margin-top: 5px;
+    margin-left: 55px !important;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+.menu-button {
+    background-color: #6a83fd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.menu-button:hover {
+    background-color: #3751d6;
+}
+
+.menu-button:disabled {
+    background-color:#b6c5f8;
+    color: #ffffff;
+    /*border: 2px solid #ffffff;*/
+    border-radius: 5px;
+    cursor: not-allowed;
+}
+/*날짜 선택 문제*/
+#date-widget {
+    padding: 10px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Styles for the time buttons */
+.time-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 10px;*/
+}
+
+.time-button {
+    font-size: 14px;
+    padding: 10px, 15px;
+    border: 2px solid #BCCBFF;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    color: #4765FF;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.time-button:hover {
+    border: 2px solid #4765FF;
+    background-color: #4765FF;
+    color: #ffffff;
+}
+
+/* Custom styles for the flatpickr date picker */
+.flatpickr-calendar {
+    background-color: #f8f9fa !important; /* Background color of the calendar */
+    border: 1px solid #BCCBFF !important; /* Border color of the calendar */
+    border-radius: 5px !important; /* Rounded corners */
+    padding-left: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2) !important; /* Shadow for the calendar */
+}
+/* Custom styles for the days on hover */
+.flatpickr-day:hover {
+    background-color: #4765FF !important; /* Background color of the day on hover */
+    color: #ffffff !important; /* Text color of the day on hover */
+    border: 1px solid #4765FF !important;
+}
+
+/* Custom styles for the selected day */
+.flatpickr-day.selected {
+    background-color: #BCCBFF !important; /* Background color of the selected day */
+    border: 1px solid #BCCBFF !important;
+    color: #ffffff !important; /* Text color of the selected day */
+}
+/* Custom styles for the current day */
+.flatpickr-day.today {
+    border: 1px solid #9EB9E3 !important;
+}
+
+/* Custom styles for the navigation buttons on hover */
+.flatpickr-prev-month:hover, .flatpickr-next-month:hover {
+    color: #4765FF !important; /* 호버 시 텍스트 색상 */
+}
+
+/*보내기 버튼*/
+.send-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    text-align: center;
+    height: auto;
+    border-top: 2px solid #BCCBFF;
+}
+
+#message-input {
+    width: calc(100%);
+    padding: 10px;
+    box-sizing: border-box; /* input field와 button이 같은 라인에 있도록 함 */
+    height: 50px; /* 텍스트 입력 필드의 높이 설정 (상하 여백 포함) */
+    border: none;
+}
+
+#send-btn {
+    background-image: url('send_icon.png');
+    background-size: 50%;
+    width: 50px;
+    height: 50px; /* 버튼의 높이 설정 (상하 여백 포함) */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #BCCBFF;
+    color: white;
+    border: none;
+    cursor:pointer;
+}
+.send-container input,
+.send-container button {
+    opacity: 0.5;
+    pointer-events: none;
+    transition: opacity 0.3s ease, pointer-events 0s ease;
+}
+
+.send-container.active input,
+.send-container.active button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+#send-btn:hover {
+    background-color: #71acec;
+    cursor: pointer;
+}
+
+.menu-container {
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+/*배경원 설정*/
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: -1;
+}
+
+.winterblue {
+    background-color: #4765FF;
+    width: 200px;
+    height: 200px;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.springlightblue {
+    background-color: #BCEFFF;
+    opacity: 0.5;
+    width: 300px;
+    height: 300px;
+    top: 0%;
+    left: 50%;
+    transform: translate(30%, -50%);
+}
+
+.summerlightblue {
+    background-color: #BCCBFF;
+    opacity: 0.5;
+    width: 400px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.autumnmuteblue {
+    background-color: #9EB9E3;
+    width: 140px;
+    height: 140px;
+    opacity: 0.5;
+    right: 75%;
+    bottom: 10%;
+    transform: translate(30%, 30%);
+}
+
+.summermuteblue {
+    background-color: #C1E0EA;
+    width: 90px;
+    height: 90px;
+    opacity: 0.5;
+    bottom: -30%;
+    left: 10%;
+    transform: translate(100%, 100%);
+}
+
+.grey {
+    background-color: #D9D9D9;
+    width: 100px;
+    height: 100px;
+    opacity: 0.5;
+    top: 10%;
+    transform: translate(50%, 200%);
+}
+
+.header-icons {
+    position: fixed;
+    top: 20px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 1; /* Ensure header-icons are on top */
+}
+
+.profile-icon {
+    background-image: url('profile-icon.png');
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-size: cover;
+    background-color: #4765FF; /* 프로필 아이콘의 배경색 변경 */
+    margin-right: 20px;
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 1; /* Ensure profile icon is above other elements */
+    transition: right 0.3s ease;
+    border-radius: 50%; /* 프로필 아이콘을 원 모양으로 설정 */
+}
+
+.profile-icon:active {
+    background-color: #BCCBFF; /* 클릭된 상태일 때의 배경색 */
+    transform: scale(1.1); /* 클릭된 상태일 때 약간 확대 */
+}
+
+.sidebar.active + .profile-icon {
+    right: 320px; /* Adjust the right position to accommodate the sidebar */
+    visibility: hidden; /* Hide the language icon when sidebar is active */
+}
+
+/* 햄버거 아이콘 스타일 */
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 2; /* 햄버거 아이콘은 가장 위에 배치 */
+}
+
+.menu-line {
+    width: 100%;
+    height: 3px;
+    background-color: #4765FF;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.menu-icon:hover .menu-line {
+    background-color: #71acec;
+}
+
+/* 오른쪽에 슬라이딩되는 창 스타일 */
+.sidebar-title{
+    font-size: 25px;
+    font-weight: bold;
+   /* padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;*/
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* 초기에는 화면 밖으로 숨겨둠 */
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 3; /* 햄버거 아이콘 아래에 배치 */
+    transition: right 0.3s ease; /* 슬라이딩 효과를 위한 transition 속성 */
+}
+#separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(204, 204, 204); /* 선의 색상 */
+    margin-top: 10px; /* 선과 위쪽 콘텐츠 사이의 간격 */
+    position: absolute;
+    bottom: 50px; /* exit-icon 위로 이동 */
+}
+
+.sidebar-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+
+#exit-icon {
+    background-image: url('exit-icon.png'); /* exit-icon 이미지를 여기에 넣으세요 */
+    width: 25px;
+    height: 25px;
+    /*border-top: 1px solid black;*/
+}
+
+/* 언어 선택 버튼 스타일 */
+.language-buttons{
+    padding: 10px;
+}
+/* Language selection buttons with icons */
+.language-buttons button {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Righteous', 'Cascadia Code SemiBold', 'Jaro', 'Poetsen One', 'Arial' sans-serif;
+}
+
+.language-buttons button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.language-buttons button:hover {
+    color: #71acec;
+}
+
+
+/* 오버레이 스타일 */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명한 검은색 배경 */
+    z-index: 0; /* 오버레이는 가장 아래에 배치 */
+    display: none; /* 초기에는 숨겨둠 */
+}
+
+/* Language icon style */
+.language-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-size: cover;
+    background-color: #4765FF;
+    margin-right: 20px;
+    position: fixed;
+    top: 20px;
+    right: 90px;
+    z-index: 1001; /* Ensure language icon is above other elements */
+    transition: right 0.3s ease;
+    border-radius: 50%;
+}
+
+.language-icon:active {
+    background-color: #BCCBFF;
+    transform: scale(1.1);
+}
+
+@media only screen and (max-width: 600px) {
+    h1{
+        font-size: 40px;
+        font-weight: bold;
+    }
+    body, html {
+        overflow: hidden;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    #chat-outline {
+        width: 90%;
+        height: 75%;
+    }
+    #chat-container {
+        overflow-y: auto;
+    }
+}
+

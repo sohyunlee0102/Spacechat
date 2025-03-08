@@ -1,0 +1,32 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Google Login</title>
+</head>
+<body>
+    {% if 'google_token' in session %}
+        <p>Logged in as: {{ email }}</p>
+        <a href="/logout">Logout</a>
+        <br><br>
+        <button onclick="addEventToCalendar()">Add Event to Google Calendar</button>
+    {% else %}
+        <a href="/login">Login with Google</a>
+    {% endif %}
+
+    <script>
+        function addEventToCalendar() {
+            fetch('/add_event')
+                .then(response => response.text())
+                .then(data => {
+                    alert("Successfully added new event!");
+                })
+                .catch(error => {
+                    console.error('Error adding event:', error);
+                });
+        }
+    </script>
+</body>
+</html>
