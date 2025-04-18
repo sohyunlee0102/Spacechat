@@ -1,5 +1,6 @@
 # AI Translation-enabled Reservation Management Chatbot (Space Chat) Ver. 1 (capstone2 branch)
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/09f32008-4363-4329-b16c-52bea49b1bf1)
+
 
 ## 📄 Overview
 
